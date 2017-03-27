@@ -11,3 +11,22 @@
     <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react-dom.js"></script>
   </body>
 </html>
+<script>
+var rootElement =
+  React.createElement('div', {},
+    React.createElement('h1', {}, 'Contacts'),
+    React.createElement('ul', {},
+      React.createElement('li', {},
+        React.createElement('h2', {}, 'Cortney Drummond'),
+        React.createElement('a', {href: 'mailto:cortney.d.drummond@gmail.com'},
+          'cortney.d.drummond@gmail.com')
+        ),
+      React.createElement('li', {},
+        React.createElement('h2', {}, 'Jeff Jefferson'),
+        React.createElement('a', {href: 'jeff@example.com'}, 'jeff@example.com')
+        )
+      )
+    )
+
+  ReactDOM.render(rootElement, document.getElementById('react-app'));
+</script>
