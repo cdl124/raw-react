@@ -22,18 +22,32 @@
     propTypes: {
       name: React.PropTypes.string.isRequired,
       email: React.PropTypes.string.isRequired,
-      description: React.PropTypes.string
+      description: React.PropTypes.string,
     },
-
     render: function() {
       return (
-        React.createElement('h1', {className: 'Contact'}, "Contacts"),
-        React.createElement('ul', {className: 'Contact-list'},
-          React.createElement('li', {}, this.props.name),
-          React.createElement('li', {}, this.props.email),
-          React.createClass('li', {}, this.props.description)
+        React.createElement('li', {},
+          React.createElement('h2', {}, this.props.name),
+          React.createElement('a', {href: 'mailto:' + this.props.email}, this.props.email),
+          React.createElement('div', {}, this.props.description)
         )
       )
-    }
+    },
   })
+
+  var contactListElements = contacts
+    .filter(function(contact) {
+      return contact.email
+    })
+      .map(function(contact) {
+        return React.createElement(ContactItem, contact)
+      })
+
+      var rootElement = React.createElement('div', {},
+      React.createElement('h1', {}, 'Contacts'),
+      React.createElement('ul', {}, contactListElements)
+    )
+
+      ReactDOM.render(rootElement, document.getElementByID('react-app'))
+
 </script>
