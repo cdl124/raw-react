@@ -6,3 +6,13 @@ body {
 .ContactItem {
   font-style: sans-serif;
 }
+
+.ContactForm {
+  width: 25%;
+
+}
+
+.ContactForm-name, .ContactForm-email, .ContactForm-description {
+  display: block;
+    margin: 10px;
+}
