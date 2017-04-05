@@ -40,7 +40,11 @@
         })
 
       return (
-        React.createElement('div', {className: 'ContactView'}, contactItemElements)
+        React.createElement('div', {className: 'ContactView'},
+          React.createElement('h1', {className: 'ContactView-header'}, 'Contacts'),
+          React.createElement('ul', {className: 'ContactView-list'}, contactItemElements),
+          React.createElement(ContactForm, {contact: newContact})
+        )
       )
     }
   })
@@ -96,12 +100,10 @@
       }
     })
 
-    var rootElement = React.createElement('div', {},
-      React.createElement('h1', {}, 'Contacts'),
-      React.createElement('ul', {}, contactItemElements),
-      React.createElement(ContactForm, {contact: newContact})
-    )
-
-    ReactDOM.render(rootElement, document.getElementById('react-app'))
+    ReactDOM.render(
+      React.createElement(ContactView, {
+        contacts: contacts,
+        newContact: newContact
+    }), document.getElementById('react-app'))
 
 </script>
