@@ -81,12 +81,18 @@
       },
 
       render: function() {
+        var oldContact = this.props.value;
+        var onChange = this.props.onChange;
+
         return (
           React.createElement('form', {className: 'ContactForm'},
             React.createElement('input', {
               type: 'text',
               placeholder: 'Name (is required)',
               value: this.props.value.name,
+              onChange: function(e) {
+                onChange(Object.assign({}, oldContact, {e.target.value}))
+              },
               className: 'ContactForm-name'
             }, this.props.contact.name),
             React.createElement('input', {
